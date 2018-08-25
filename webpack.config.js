@@ -7,6 +7,22 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  module: {
+    rules: [
+      {
+        test: /\.(s*)css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
+      },
+      {
+       test: /\.(png|svg|jpg|jpeg|gif)$/,
+       use: [ 'file-loader' ]
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Custom template',

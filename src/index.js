@@ -1,10 +1,10 @@
-
+import './scss/style.scss'
 
 let componentHero = function(content){
   const hero = document.createElement('div')
   hero.classList.add('hero')
   hero.innerHTML = `
-    <h1>${content}</h1>
+    <span><h1>${content}</h1></span>
   `
   return hero
 }
@@ -30,7 +30,7 @@ let componentSection = function(section, content){
   return element
 }
 
-contents = [
+const contents = [
   {
     section: 'About',
     content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores iure accusamus, veniam natus molestiae sequi laboriosam perspiciatis porro unde fugiat velit repellendus sed exercitationem maiores, dolorem ad culpa! Saepe, nemo.'
