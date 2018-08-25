@@ -13,9 +13,21 @@ let componentNav = function(){
   const nav = document.createElement('nav')
   nav.innerHTML = `
     <ul>
-      <li>About</li>
-      <li>Info</li>
-      <li>Contact</li>
+      <li>
+        <a href="#" data-section="about">
+          About
+        </a>
+      </li>
+      <li>
+        <a href="#" data-section="info">
+          Info
+        </a>
+      </li>
+      <li>
+        <a href="#" data-section="contact">
+          Contact
+        </a>
+      </li>
     </ul>
   `
   return nav
@@ -51,12 +63,23 @@ const sections = contents.reduce(
     return sections
   },[])
 
-const hero = componentHero('Our Restaurent')
-const nav = componentNav()
+const components = {}
+components.hero = componentHero('Our Restaurent')
+components.nav = componentNav()
+
 const content = document.querySelector('#content')
 
-content.appendChild(hero)
-content.appendChild(nav)
-sections.forEach( section => {
-  content.appendChild(section)
+content.appendChild(components.hero)
+content.appendChild(components.nav)
+// sections.forEach( section => {
+//   content.appendChild(section)
+// })
+
+const navlinks = document.querySelectorAll('nav a')
+
+navlinks.forEach(link => {
+  link.addEventListener('click', event => {
+    event.preventDefault()
+
+  })
 })
